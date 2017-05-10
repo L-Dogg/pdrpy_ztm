@@ -45,10 +45,8 @@ def get_active_lines(vehicle_type: VehicleType) -> Set[str]:
 
 
 def get_active_vehicles(vehicle_type: VehicleType) -> str:
-    data = {}
     response = requests.post(AVAILABLE_LINES_ENDPOINT_URL.format(API_KEY, vehicle_type.value)).json()[JSON_ROOT]
-    data[str(datetime.now())] = response
-    return json.dumps(data)
+    return json.dumps(response)
 
 
 def low_floor_tram_data() -> str:
