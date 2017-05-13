@@ -8,7 +8,7 @@ from typing import Set
 # One Line endpoint is updated ever 10s
 # Available Line endpoint is updated ever 10s
 
-API_KEY = 'b2404019-9b1d-4ff5-9969-af137b28c7da'
+API_KEY = '424a63de-f548-49cc-8665-4354cafce3f3'
 
 ONE_LINE_ENDPOINT_URL = 'https://api.um.warszawa.pl/api/action/busestrams_get/' \
                         '?resource_id=f2e5503e-927d-4ad3-9500-4ab9e55deb59&apikey={}&type={}&line={}'
