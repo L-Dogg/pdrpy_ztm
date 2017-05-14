@@ -11,8 +11,8 @@ TIMEOUT = 10.0  # Sixty seconds
 MEGABYTE = 1024 * 1024
 MAX_FILE_SIZE = 2 * 4096 * MEGABYTE #8GB
 
-bus_file_name = "buses.json"
-tram_file_name = "trams.json"
+bus_file_name = "buses3.json"
+tram_file_name = "trams3.json"
 
 def saveJsonToFile(tramfile, busfile):
     starttime = time.time()
