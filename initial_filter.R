@@ -22,3 +22,25 @@ filter_trams <- function(filename, day_of_month)
   output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
   write(toJSON(trams, pretty = TRUE), file = output_name)
 }
+
+BUSES_SOUTH <- 52.080793 # Piaseczno
+BUSES_NORTH <- 52.408296 # Legionowo
+BUSES_WEST <- 20.833262 # Piastów
+BUSES_EAST <- 21.354953 # Halinów
+
+
+filter_buses <- function(filename, day_of_month) 
+{
+  initial <- fromJSON(filename)$results %>%
+    filter(Lon >= BUSES_WEST, Lat <= BUSES_NORTH) %>%
+    filter(Lon <= BUSES_EAST, Lat >= BUSES_SOUTH) %>%
+    filter(day(Time) >= day_of_month) %>%
+    arrange(Time)
+  
+  #todo: skopiować z Lines.py wektory z liniami
+  #i pozapisywac wejsciowe jsony do osobnych plikow 
+  #(podzial wg typu- nocne, przyspieszone, itp.)
+  
+  output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
+  write(toJSON(initial, pretty = TRUE), file = output_name)
+}
