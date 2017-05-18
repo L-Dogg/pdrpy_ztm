@@ -4,7 +4,7 @@ from Lines import VehicleType
 import datetime
 import os
 
-#There's a problem with that script, so we have to remove last comma manually and add [} at the end
+#There's a problem with that script, so we have to remove last comma manually and add ]} at the end
 
 TIMEOUT = 10.0  # Sixty seconds
 
