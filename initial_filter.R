@@ -11,12 +11,13 @@ TRAMS_WEST <- 20.893515 - 0.05 # Os. Górczewska
 TRAMS_EAST <- 21.018733 + 0.05 # Żerań Wschodni
 
 #Filters and sorts trams and saves to ($filename)-filtered.json
-filter_trams <- function(filename, day_of_month) 
+filter_trams <- function(filename, day_of_month, month) 
 {
   trams <- fromJSON(filename)$results %>%
     filter(Lon >= TRAMS_WEST, Lat <= TRAMS_NORTH) %>%
     filter(Lon <= TRAMS_EAST, Lat >= TRAMS_SOUTH) %>%
     filter(day(Time) >= day_of_month) %>%
+    filter(month(Time) >= month) %>%
     arrange(Time)
   
   output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
@@ -65,17 +66,14 @@ NightBusLines <- c("N01", "N02", "N03", "N11", "N12", "N13", "N14", "N16", "N21"
                  "N56", "N58", "N61", "N62", "N63", "N64", "N66", "N71", "N72", "N81", "N83", "N85", "N88", "N91", "N95")
 
 
-filter_buses <- function(filename, day_of_month) 
+filter_buses <- function(filename, day_of_month, month) 
 {
   initial <- fromJSON(filename)$results %>%
     filter(Lon >= BUSES_WEST, Lat <= BUSES_NORTH) %>%
     filter(Lon <= BUSES_EAST, Lat >= BUSES_SOUTH) %>%
     filter(day(Time) >= day_of_month) %>%
+    filter(month(Time) >= month) %>%
     arrange(Time)
-  
-  #todo: skopiować z Lines.py wektory z liniami
-  #i pozapisywac wejsciowe jsony do osobnych plikow 
-  #(podzial wg typu- nocne, przyspieszone, itp.)
   
   normalLines <- initial %>% filter(Lines %in% NormalBusLines)
   fastPeriodicLines <- initial %>% filter(Lines %in% FastPeriodicBusLines)
@@ -105,10 +103,12 @@ saveToFile <- function (data, filepath, fileSuffix)
 }
 
 setwd("H:\\PDRPy\\pd4\\pdrpy_ztm")
-filter_buses("data\\14-05\\buses.json", 14)
-filter_buses("data\\14-05\\buses2.json", 14)
-filter_buses("data\\14-05\\buses3.json", 14)
+filter_buses("data\\14-05\\buses.json", 14, 5)
+filter_buses("data\\14-05\\buses2.json", 14, 5)
+filter_buses("data\\14-05\\buses3.json", 14, 5)
+filter_buses("data\\15-05\\buses3.json", 15, 5)
 
-filter_trams("data\\14-05\\trams.json", 14)
-filter_trams("data\\14-05\\trams2.json", 14)
-filter_trams("data\\14-05\\trams3.json", 14)
+filter_trams("data\\14-05\\trams.json", 14, 5)
+filter_trams("data\\14-05\\trams2.json", 14, 5)
+filter_trams("data\\14-05\\trams3.json", 14, 5)
+filter_trams("data\\15-05\\trams3.json", 15, 5)
