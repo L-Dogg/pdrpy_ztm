@@ -102,7 +102,6 @@ saveToFile <- function (data, filepath, fileSuffix)
   write(toJSON(data, pretty = TRUE), file = output_name)
 }
 
-setwd("H:\\PDRPy\\pd4\\pdrpy_ztm")
 filter_buses("data\\14-05\\buses.json", 14, 5)
 filter_buses("data\\14-05\\buses2.json", 14, 5)
 filter_buses("data\\14-05\\buses3.json", 14, 5)
