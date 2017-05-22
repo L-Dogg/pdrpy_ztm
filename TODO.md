@@ -17,3 +17,5 @@ TODO.md
 
 * Ambitnie można zrobić powyższy punkt + analiza spóźnień na podstawie rozkładów z ztm.waw.pl
 * Mniej ambitnie: porównanie czasów dojazdu rowerem/autem wg google maps (tylko z gmaps trzeba uważać, bo bierze pod uwagę aktualną sytuację na drodze)
+
+* Dla wszystkich autobusów, policzyć całkowity pokonany dystans (na podstawie różnicy współrzędnych), przyjąć jakąś wartość średniego spalania i paliwa i policzyć dzienny/godzinny koszt utrzymania komunikacji (oczywiście częściowy, nie uwzględniający innych kosztów jak np. wypłaty kierowców)
