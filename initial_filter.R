@@ -18,6 +18,7 @@ filter_trams <- function(filename, day_of_month, month)
     filter(Lon <= TRAMS_EAST, Lat >= TRAMS_SOUTH) %>%
     filter(day(Time) >= day_of_month) %>%
     filter(month(Time) >= month) %>%
+    distinct %>%
     arrange(Time)
   
   output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
