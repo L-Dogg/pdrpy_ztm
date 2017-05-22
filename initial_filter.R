@@ -73,6 +73,7 @@ filter_buses <- function(filename, day_of_month, month)
     filter(Lon <= BUSES_EAST, Lat >= BUSES_SOUTH) %>%
     filter(day(Time) >= day_of_month) %>%
     filter(month(Time) >= month) %>%
+    distinct %>%
     arrange(Time)
   
   normalLines <- initial %>% filter(Lines %in% NormalBusLines)
@@ -85,10 +86,10 @@ filter_buses <- function(filename, day_of_month, month)
   expressLines <- initial %>% filter(Lines %in% ExpressBusLines)
   nightLines <- initial %>% filter(Lines %in% NightBusLines)
 
-  filteredLines <- list(normalLines, fastPeriodicLines, fastLines, zoneLines, zoneSupplementaryLines, zonePeriodicLines,
+  filteredLines <- list(initial, normalLines, fastPeriodicLines, fastLines, zoneLines, zoneSupplementaryLines, zonePeriodicLines,
                      specialLines, expressLines, nightLines)
 
-  fileSuffixes <- c("normal", "fast-periodic", "fast", "zone", "zone-supplementary", "zone-periodic", "special",
+  fileSuffixes <- c("initial", "normal", "fast-periodic", "fast", "zone", "zone-supplementary", "zone-periodic", "special",
                     "express", "night")
 
 
