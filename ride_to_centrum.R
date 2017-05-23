@@ -187,7 +187,7 @@ generate_time_data <- function(directory) {
   zoliborz <- get_times_south(ZOLIBORZ_LAT, ZOLIBORZ_LON, CENTRALNY_LAT, CENTRALNY_LON, ZOLIBORZ_PATTERN)
   bemowo <- get_times_east(BEMOWO_LAT, BEMOWO_LON, CENTRALNY_LAT, CENTRALNY_LON, BEMOWO_PATTERN)
   brodno <- get_times_south(BRODNO_LAT, BRODNO_LON, CENTRALNY_LAT, CENTRALNY_LON, BRODNO_PATTERN)
-  praga <- get_times_west(PRAGA_LAT, PRAGA_LON, CENTRALNY_LAT, CENTRALNY_LON, PRAGA_PATTERN)
+  praga <- get_times_west(PRAGA_LAT, PRAGA_LON, CENTRALNY_LAT, CENTRALNY_LON, PRAGA_PATTERN, offset = 0.0015, min_time = 15)
   
   vals <- list(ochota, mokotow, zoliborz, bemowo, brodno, praga)
   max_len = max(sapply(vals, length))
