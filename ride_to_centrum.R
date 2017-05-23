@@ -18,8 +18,9 @@ OFFSET = 0.0001
 
 dirpath = "data/15-05/trams3-filtered/"
 
-get_times <- function(start_lat, start_lon,  end_lat, end_lon, pattern)
+get_times <- function(start_lat, start_lon, end_lat, end_lon, pattern, min_time = 10, max_time=40)
 {
+  times = 0
   filenames = dir(dirpath, pattern=pattern)
   k = 1
   
@@ -29,21 +30,24 @@ get_times <- function(start_lat, start_lon,  end_lat, end_lon, pattern)
       filter(abs(start_lat - Lat) <= OFFSET) %>%
       filter(hour(Time) >= 8, hour(Time) < 10)
     
-    for (j in 1:length(stop_arrivals))
+    if (nrow(stop_arrivals) > 0)
     {
-      arrival_time = stop_arrivals$Time[j]
-      data_between_stops <- fromJSON(paste(dirpath, filenames[i], sep=""))$res[[1]] %>%
-        filter(Time > arrival_time) %>%
-        filter(hour(Time) <= 11) %>%
-        filter(Lat - start_lat >= 0) %>%
-        filter(Lat - end_lat <= 0) %>%
-        filter(row_number() == 1 | row_number() == n())
-      
-      times[k] = difftime(data_between_stops$Time[2], data_between_stops$Time[1])
-      k = k +1
+      for (j in 1:length(stop_arrivals))
+      {
+        arrival_time = stop_arrivals$Time[j]
+        data_between_stops <- fromJSON(paste(dirpath, filenames[i], sep=""))$res[[1]] %>%
+          filter(Time >= arrival_time) %>%
+          filter(hour(Time) <= 11) %>%
+          filter(Lat - start_lat >= 0) %>%
+          filter(Lat - end_lat <= 0) %>%
+          filter(row_number() == 1 | row_number() == n())
+        
+        times[k] = difftime(data_between_stops$Time[2], data_between_stops$Time[1])
+        k = k +1
+      }
     }
   }
   
   times = times[!is.na(times)]
-  times = times[times > 10 & times < 35]
+  times = times[times > min_time & times < max_time]
 }
