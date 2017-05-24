@@ -43,6 +43,30 @@ filter_lowfloor_trams <- function(filename, day_of_month, month)
 }
 
 
+filter_lowfloor_trams_csv <- function(filename, day_of_month, month)
+{
+  data <- as.data.frame(read.csv(filename))
+  colnames(data) <- c("Time", "Lat", "Lon", "FirstLine", "Lines", "Brigade", "LineBrigade", "Status", "LowFloor")
+  trams <- data %>% 
+    filter(Lon >= TRAMS_WEST, Lat <= TRAMS_NORTH) %>%
+    filter(Lon <= TRAMS_EAST, Lat >= TRAMS_SOUTH) %>%
+    filter(day(Time) >= day_of_month) %>%
+    filter(month(Time) >= month) %>%
+    distinct %>%
+    arrange(Time)
+  
+  trams["Hour"] <- hour(sub("T", trams$Time, replacement = " "))
+  trams["Minute"] <- minute(sub("T", trams$Time, replacement = " "))
+  
+  output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
+  write(toJSON(trams, pretty = TRUE), file = output_name)
+}
+
+filter_lowfloor_trams_csv('data\\2016-03-21\\20160321_tramwaje.csv', 21, 3)
+filter_lowfloor_trams_csv('data\\2016-03-22\\20160322_tramwaje.csv', 22, 3)
+filter_lowfloor_trams_csv('data\\2016-03-23\\20160323_tramwaje.csv', 23, 3)
+
+
 BUSES_SOUTH <- 52.080793 # Piaseczno
 BUSES_NORTH <- 52.408296 # Legionowo
 BUSES_WEST <- 20.833262 # Piastów
