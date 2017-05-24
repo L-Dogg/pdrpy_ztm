@@ -35,6 +35,9 @@ filter_lowfloor_trams <- function(filename, day_of_month, month)
     distinct %>%
     arrange(Time)
   
+  trams["Hour"] <- hour(sub("T", trams$Time, replacement = " "))
+  trams["Minute"] <- minute(sub("T", trams$Time, replacement = " "))
+  
   output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
   write(toJSON(trams, pretty = TRUE), file = output_name)
 }
