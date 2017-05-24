@@ -6,23 +6,50 @@ library(lubridate)
 
 map <- get_map("Warszawa, Polska", zoom=11)
 
-filename = '/home/orgiele/Semestr 6/pdrpy_ztm/data/15-05/trams3-filtered.json'
+filename = 'data\\14-05\\trams3-filtered.json'
 
 trams <- fromJSON(filename) %>%
   filter(hour(Time) %in% c(8, 9, 10)) %>%
   distinct() %>%
   arrange(Time)
 
+normalBuses14 <- rbind(fromJSON('data\\14-05\\buses-normal-filtered.json'), fromJSON('data\\14-05\\buses2-normal-filtered.json'),
+              fromJSON('data\\14-05\\buses3-normal-filtered.json'))
+
+fastBuses14 <- rbind(fromJSON('data\\14-05\\buses-fast-filtered.json'),fromJSON('data\\14-05\\buses2-fast-filtered.json'),
+                     fromJSON('data\\14-05\\buses3-fast-filtered.json'))
+
+fastBuses15 <- fromJSON('data\\15-05\\buses3-fast-filtered.json')
+fastPeriodicBuses15 <- fromJSON('data\\15-05\\buses3-fast-periodic-filtered.json')
+zoneBuses15 <- fromJSON('data\\15-05\\buses3-zone-filtered.json')
+normalBuses15 <- fromJSON('data\\15-05\\buses3-normal-filtered.json')
+
+nightBuses14 <- rbind(fromJSON('data\\14-05\\buses-night-filtered.json'), 
+                      fromJSON('data\\14-05\\buses2-night-filtered.json'))
+
 # Normal plot
-ggmap(map, extent = "device") + geom_point(aes(x = Lon, y = Lat), colour = "red", 
-                                                 alpha = 0.1, size = 2, data = trams)
+normalPlot <- function(df) {
+  ggmap(map, extent = "device") + geom_point(aes(x = Lon, y = Lat), colour = df$Lines,
+                                                 alpha = 0.1, size = 1, data = df)
+}
+
+normalPlot(normalBuses14)
+normalPlot(fastBuses14)
+normalPlot(fastBuses15)
+normalPlot(fastPeriodicBuses15)
+normalPlot(zoneBuses15)
+normalPlot(normalBuses15)
+
 
 # Heat map
-heatmap <- ggmap(map, extent = "device") + geom_density2d(data = trams, 
-  aes(x = Lon, y = Lat), size = 0.3) + stat_density2d(data = trams, 
+heatmap <- function (df) { 
+  ggmap(map, extent = "device") + geom_density2d(data = df, 
+  aes(x = Lon, y = Lat), size = 0.3) + stat_density2d(data = df, 
   aes(x = Lon, y = Lat, fill = ..level.., alpha = ..level..), size = 0.01, 
   bins = 16, geom = "polygon") + scale_fill_gradient(low = "green", high = "red") + 
   scale_alpha(range = c(0, 0.3), guide = FALSE) +
-  ggtitle("Tramwaje w poniedziałek 15.05.2017", subtitle = "godz. 8-10")
+  ggtitle("Autobusy normalne 14.05.2017")
+}
 
-heatmap
+heatmap(nightBuses14)
+heatmap(normalBuses14)
