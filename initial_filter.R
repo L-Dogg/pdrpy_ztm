@@ -25,6 +25,24 @@ filter_trams <- function(filename, day_of_month, month)
   write(toJSON(trams, pretty = TRUE), file = output_name)
 }
 
+filter_lowfloor_trams <- function(filename, day_of_month, month)
+{
+  trams <- fromJSON(filename)$results %>% 
+    filter(Lon >= TRAMS_WEST, Lat <= TRAMS_NORTH) %>%
+    filter(Lon <= TRAMS_EAST, Lat >= TRAMS_SOUTH) %>%
+    filter(day(Time) >= day_of_month) %>%
+    filter(month(Time) >= month) %>%
+    distinct %>%
+    arrange(Time)
+  
+  trams["Hour"] <- hour(sub("T", trams$Time, replacement = " "))
+  trams["Minute"] <- minute(sub("T", trams$Time, replacement = " "))
+  
+  output_name <- paste(substring(filename, 1, nchar(filename) - 5), "-filtered.json", sep="")
+  write(toJSON(trams, pretty = TRUE), file = output_name)
+}
+
+
 BUSES_SOUTH <- 52.080793 # Piaseczno
 BUSES_NORTH <- 52.408296 # Legionowo
 BUSES_WEST <- 20.833262 # Piastów
