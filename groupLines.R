@@ -37,10 +37,7 @@ old_filenames <- c('data\\2016-03-21\\20160321_tramwaj-filtered.json', 'data\\20
 
 sapply(old_filenames, function(filename) 
 {
-  data <- as.data.frame(read.csv(filename))
-  colnames(data) <- c("Time", "Lat", "Lon", "FirstLine", "Lines", "Brigade", "LineBrigade", "Status", "LowFloor")
-  
-  trams <- data %>%
+  trams <- fromJSON(filename) %>%
     group_by(Brigade, FirstLine) %>%
     do(res = wrapper(.)) 
   
