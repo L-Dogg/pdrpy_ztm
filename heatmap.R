@@ -6,7 +6,8 @@ library(lubridate)
 
 map <- get_map("Warszawa, Polska", zoom=12)
 
-filename = 'data/14-05/trams3-filtered.json'
+setwd(paste(getwd(), "/Semestr6/pdrpy_ztm/", sep=""))
+filename = 'data/23-05/trams_lowfloor-filtered.json'
 
 trams <- fromJSON(filename) %>%
   filter(hour(Time) %in% 6:23) %>%
@@ -53,3 +54,5 @@ heatmap <- function (df, title) {
 
 heatmap(nightBuses14)
 heatmap(normalBuses14)
+
+
