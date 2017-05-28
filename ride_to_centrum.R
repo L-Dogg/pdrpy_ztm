@@ -7,12 +7,12 @@ OCHOTA_PATTERN = "^(7|9)"
 OCHOTA_LAT = 52.202597
 OCHOTA_LON = 20.969198
 
-#Mokotów: north
+#MokotĂłw: north
 MOKOTOW_PATTERN = "^17"
 MOKOTOW_LAT = 52.189607
 MOKOTOW_LON = 21.002015
 
-#Żoliborz: south
+#Ĺ»oliborz: south
 ZOLIBORZ_PATTERN = "^17"
 ZOLIBORZ_LAT = 52.271886
 ZOLIBORZ_LON = 20.971979
@@ -22,7 +22,7 @@ BEMOWO_PATTERN = "^24"
 BEMOWO_LAT = 52.251406
 BEMOWO_LON = 20.914978
 
-#Bródno: south
+#BrĂłdno: south
 BRODNO_PATTERN = "^(25|4)"
 BRODNO_LAT = 52.288691
 BRODNO_LON = 21.030294
@@ -181,7 +181,7 @@ get_times_east <- function(start_lat, start_lon, end_lat, end_lon,
 }
 
 generate_time_data <- function(directory) {
-  ets = c("Ochota", "Mokotów", "Żoliborz", "Bemowo", "Bródno", "Praga")
+  ets = c("Ochota", "MokotĂłw", "Ĺ»oliborz", "Bemowo", "BrĂłdno", "Praga")
   ochota <- get_times_north(OCHOTA_LAT, OCHOTA_LON, CENTRALNY_LAT, CENTRALNY_LON, OCHOTA_PATTERN)
   mokotow <- get_times_north(MOKOTOW_LAT, MOKOTOW_LON, CENTRALNY_LAT, CENTRALNY_LON, MOKOTOW_PATTERN)
   zoliborz <- get_times_south(ZOLIBORZ_LAT, ZOLIBORZ_LON, CENTRALNY_LAT, CENTRALNY_LON, ZOLIBORZ_PATTERN)

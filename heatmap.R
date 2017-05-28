@@ -28,6 +28,11 @@ normalBuses15 <- fromJSON('data\\15-05\\buses3-normal-filtered.json')
 nightBuses14 <- rbind(fromJSON('data\\14-05\\buses-night-filtered.json'), 
                       fromJSON('data\\14-05\\buses2-night-filtered.json'))
 
+trams23 = fromJSON('data\\2016-03-23\\20160323_tramwaj-filtered.json') %>%
+  distinct() %>%
+  arrange(Time)
+
+
 # Normal plot
 normalPlot <- function(df) {
   ggmap(map, extent = "device") + geom_point(aes(x = Lon, y = Lat), colour = df$Lines,
@@ -54,5 +59,5 @@ heatmap <- function (df, title) {
 
 heatmap(nightBuses14)
 heatmap(normalBuses14)
-
+heatmap(trams23, '')
 
