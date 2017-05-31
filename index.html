@@ -1,64 +1,10 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<title>prezentacja slides</title>
+<head><meta charset="utf-8" />
+<title>prezentacja</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11745,86 +11691,61 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-  overflow-y: scroll;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
 }
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
-.rendered_html p {
-  text-align: inherit;
+
+@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
-
-
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
 <body>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-
-<div class="reveal">
-<div class="slides">
-<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11835,30 +11756,6 @@ a.anchor-link {
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
-
-<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
-<span class="s1">code_show=true; </span>
-<span class="s1">function code_toggle() {</span>
-<span class="s1"> if (code_show){</span>
-<span class="s1"> $(&#39;div.input&#39;).hide();</span>
-<span class="s1"> } else {</span>
-<span class="s1"> $(&#39;div.input&#39;).show();</span>
-<span class="s1"> }</span>
-<span class="s1"> code_show = !code_show</span>
-<span class="s1">} </span>
-<span class="s1">$( document ).ready(code_toggle);</span>
-<span class="s1">&lt;/script&gt;</span>
-<span class="s1">&lt;center&gt;&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt;&lt;c/enter&gt;&#39;&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered">
@@ -11875,19 +11772,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="k">as</span> <span class="nn">py</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">py</span><span class="o">.</span><span class="n">sign_in</span><span class="p">(</span><span class="s1">&#39;orgiele&#39;</span><span class="p">,</span> <span class="s1">&#39;0hLF1CVCaH5sEU0CG9Ah&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered">
@@ -11938,19 +11822,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span>
-    <span class="s2">&quot;&lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=&#39;data/14-05/trams-heatmap.png&#39;/&gt;&quot;</span><span class="o">+</span>
-    <span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;data/15-05/trams-heatmap.png&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -11989,52 +11860,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/15-05/trams3-filtered/time-data.csv&#39;</span><span class="p">)</span>
-<span class="n">times</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">reindex_axis</span><span class="p">(</span><span class="n">times</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">means</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">stds</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-
-<span class="n">timetable_times</span> <span class="o">=</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
-
-<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">means</span><span class="p">,</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Średni czas przejazdu&quot;</span><span class="p">,</span>
-        <span class="n">error_y</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-            <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span>
-            <span class="n">array</span><span class="o">=</span><span class="n">stds</span><span class="p">,</span>
-            <span class="n">visible</span><span class="o">=</span><span class="kc">True</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-
-<span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">means</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">),</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Czas przejazdu wg ZTM&quot;</span><span class="p">,</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">timetable_times</span><span class="p">,</span>
-    <span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Czas dojazdu tramwajem na Dworzec Centralny z wybranych dzielnic w godzinach szczytu&#39;</span><span class="p">,</span>
-    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
-        <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Dzielnica&#39;</span>
-    <span class="p">),</span>
-    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Czas [min]&#39;</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12071,42 +11896,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/23-05/tram-counts.csv&quot;</span><span class="p">)</span>
-
-<span class="n">total_count</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;All&#39;</span><span class="p">]</span>
-<span class="n">lowfloor</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lowfloor&#39;</span><span class="p">]</span>
-<span class="n">hours</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
-    
-<span class="n">trace1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">lowfloor</span><span class="p">,</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Liczba niskopodłogowych&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span>
-<span class="p">}</span>
-<span class="n">trace2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">total_count</span><span class="p">,</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Całkowita liczba przejazdów&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span>
-<span class="p">}</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Liczba przejazdów i liczba przejazdów tramwajami niskopodłogowymi we wszystkich przejazdach w ciągu danej godziny&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;yaxis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;Liczba niskopodłogowych&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;barmode&#39;</span><span class="p">:</span> <span class="s1">&#39;relative&#39;</span>
-<span class="p">}</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12134,18 +11923,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Godzina&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span> <span class="s1">&#39;Odsetek niskopodłogowych&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">lowfloor</span> <span class="o">/</span> <span class="n">total_count</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12206,42 +11983,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/2016-03-23/tram-counts.csv&quot;</span><span class="p">)</span>
-
-<span class="n">total_count</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;All&#39;</span><span class="p">]</span>
-<span class="n">lowfloor</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Lowfloor&#39;</span><span class="p">]</span>
-<span class="n">hours</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
-    
-<span class="n">trace1</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">lowfloor</span><span class="p">,</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Liczba niskopodłogowych&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span>
-<span class="p">}</span>
-<span class="n">trace2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">total_count</span><span class="p">,</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Całkowita liczba przejazdów&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span>
-<span class="p">}</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Liczba przejazdów i liczba przejazdów tramwajami niskopodłogowymi we wszystkich przejazdach &lt;br&gt; w ciągu danej godziny w 2016 roku&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;yaxis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span><span class="s1">&#39;Liczba niskopodłogowych&#39;</span><span class="p">},</span>
-    <span class="s1">&#39;barmode&#39;</span><span class="p">:</span> <span class="s1">&#39;relative&#39;</span>
-<span class="p">}</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12269,18 +12010,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Godzina&#39;</span><span class="p">:</span> <span class="n">hours</span><span class="p">,</span> <span class="s1">&#39;Odsetek niskopodłogowych&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">lowfloor</span> <span class="o">/</span> <span class="n">total_count</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">})</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12341,45 +12070,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/15-05/tram-counts.csv&quot;</span><span class="p">)</span>
-
-<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Hour&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">:],</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">:],</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Liczba przejazdów (2017)&#39;</span><span class="p">,</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dash</span> <span class="o">=</span> <span class="s1">&#39;dot&#39;</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/2016-03-23/tram-counts2.csv&quot;</span><span class="p">)</span>
-
-<span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Hour&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">:],</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Count&quot;</span><span class="p">][</span><span class="mi">8</span><span class="p">:],</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Liczba przejazdów (2016)&#39;</span><span class="p">,</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dash</span> <span class="o">=</span> <span class="s1">&#39;dot&#39;</span><span class="p">),</span>
-<span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Liczba przejazdów w ciągu godziny&#39;</span><span class="p">,</span>
-    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Liczba przejazdów&#39;</span>
-    <span class="p">),</span>
-    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Godzina&#39;</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12438,18 +12128,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span>
-    <span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=&#39;data/14-05/buses-normal14-filtered2.png&#39;/&gt;&quot;</span><span class="o">+</span>
-    <span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;data/15-05/buses-normal15-filtered.png&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12477,20 +12155,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busesNormalCount.json&#39;</span><span class="p">),</span> 
-                      <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/15-05/busesNormalCount.json&#39;</span><span class="p">)])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Dzień&#39;</span><span class="p">:[</span><span class="s1">&#39;14.05.2017&#39;</span><span class="p">,</span> <span class="s1">&#39;15.05.2017&#39;</span><span class="p">],</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">:</span><span class="n">distance</span><span class="p">},</span> 
-                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Dzień&#39;</span><span class="p">,</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">])</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12544,18 +12208,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span>
-    <span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=&#39;data/14-05/buses-fast14-filtered.png&#39;/&gt;&quot;</span><span class="o">+</span>
-    <span class="s2">&quot;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;data/15-05/buses-fast15-filtered.png&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12583,20 +12235,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busesFastCount.json&#39;</span><span class="p">),</span> 
-                      <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/15-05/busesFastCount.json&#39;</span><span class="p">)])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Dzień&#39;</span><span class="p">:[</span><span class="s1">&#39;14.05.2017&#39;</span><span class="p">,</span> <span class="s1">&#39;15.05.2017&#39;</span><span class="p">],</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">:</span><span class="n">distance</span><span class="p">},</span> 
-                        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Dzień&#39;</span><span class="p">,</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">])</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12660,18 +12298,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busesNightCount.json&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Dzień&#39;</span><span class="p">:</span><span class="s1">&#39;14.05.2017&#39;</span><span class="p">,</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">:</span><span class="n">distance</span><span class="p">},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Dzień&#39;</span><span class="p">,</span> <span class="s1">&#39;Liczba autobusów&#39;</span><span class="p">])</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12721,42 +12347,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busDistance-night.json&#39;</span><span class="p">),</span>
-                     <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busDistance-day.json&#39;</span><span class="p">),</span>
-                     <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/15-05/busDistance-day.json&#39;</span><span class="p">)])</span>
-
-<span class="n">distanceList</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">/</span><span class="mi">1000</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">distance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
-
-<span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;14.05.2017 - noc&#39;</span><span class="p">,</span> <span class="s1">&#39;14.05.2017 - dzień (weekend)&#39;</span><span class="p">,</span> <span class="s1">&#39;15.05.2017 - dzień&#39;</span><span class="p">]</span>
-<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">index</span><span class="p">,</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">distanceList</span><span class="p">,</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Pokonany dystans&quot;</span>
-    <span class="p">)</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Całkowity dystans w kilometrach pokonany przez autobusy w zależności od dnia&#39;</span><span class="p">,</span>
-    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
-    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Dzień&#39;</span>
-    <span class="p">),</span>
-    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Dystans [km]&#39;</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">]</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12784,17 +12374,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">distance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Dzień&#39;</span><span class="p">:</span><span class="n">index</span><span class="p">,</span> <span class="s1">&#39;Dystans [km]&#39;</span><span class="p">:[</span><span class="nb">round</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> <span class="k">for</span> <span class="n">dist</span> <span class="ow">in</span> <span class="n">distanceList</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Dzień&#39;</span><span class="p">,</span> <span class="s1">&#39;Dystans [km]&#39;</span><span class="p">])</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12866,47 +12445,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day14speed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busSpeed-day-grouped.json&#39;</span><span class="p">),</span>
-                     <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/14-05/busSpeed-night-grouped.json&#39;</span><span class="p">)])</span>
-
-<span class="n">day15speed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;file:data/15-05/busSpeed-day-grouped.json&#39;</span><span class="p">)</span>
-
-<span class="n">trace1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">day14speed</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">day14speed</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;14.05.2017&quot;</span>
-    <span class="p">)</span>
-
-<span class="n">trace2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">day15speed</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">day15speed</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;15.05.2017&quot;</span>
-    <span class="p">)</span>
-
-<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Średnia prędkość wybranych linii autobusowych&#39;</span><span class="p">,</span>
-    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
-    <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Rodzaj linii&#39;</span>
-    <span class="p">),</span>
-    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Prędkość [km\h]&#39;</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span> <span class="n">trace2</span><span class="p">]</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;basic&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -12934,20 +12472,6 @@ Jacek Dziwulski
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">day15speedModified</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">day15speed</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Type&#39;</span><span class="p">:</span><span class="s1">&#39;Nocne&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">:</span><span class="s1">&#39;-&#39;</span><span class="p">},</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">])])</span>
-
-<span class="n">speed</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span> <span class="s1">&#39;Rodzaj linii&#39;</span><span class="p">:</span><span class="n">day14speed</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">],</span> <span class="s1">&#39;14.05.2017&#39;</span><span class="p">:</span><span class="n">day14speed</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">],</span>
-                      <span class="s1">&#39;15.05.2017&#39;</span><span class="p">:</span><span class="n">day15speedModified</span><span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">]},</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Rodzaj linii&#39;</span><span class="p">,</span> <span class="s1">&#39;14.05.2017&#39;</span><span class="p">,</span> <span class="s1">&#39;15.05.2017&#39;</span><span class="p">])</span>
-<span class="n">HTML</span><span class="p">(</span><span class="n">speed</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -13008,63 +12532,8 @@ Jacek Dziwulski
 <center>Tabela x: Średnia prędkość w km/h wybranych linii autobusowych w zależności od dnia </center>
 </div>
 </div>
-</div></section></section>
 </div>
-</div>
-
-<script>
-
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
-    ],
-
-    function(head, Reveal){
-
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
-
-        Reveal.addEventListener('slidechanged', update_scroll);
-
-    }
-);
-</script>
-
+    </div>
+  </div>
 </body>
-
-
 </html>
